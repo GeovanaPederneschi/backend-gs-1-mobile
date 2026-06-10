@@ -8,9 +8,8 @@
 
 | Nome Completo | RM |
 |---|---|
-| (preencher) | RM |
-| (preencher) | RM |
-| (preencher) | RM |
+| Geovana Carvalho Pederneschi | 559092 |
+| Thais Helena Ferreira Vieira | 552387 |
 
 ---
 
