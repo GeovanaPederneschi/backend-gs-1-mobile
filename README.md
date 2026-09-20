@@ -93,6 +93,17 @@ Alerta gerado quando um parâmetro excede limite seguro. Possui relacionamento `
 
 ---
 
+## Integração com o App Mobile (Sprint 3)
+
+Todos os controllers (`SensorModuloController`, `LeituraSensorController`, `AlertaCriticoController`) têm `@CrossOrigin` habilitado, liberando o CORS para o app React Native (Expo) consumir a API diretamente do navegador/emulador/dispositivo, sem proxy.
+
+Para testar a integração:
+1. Suba esta API (`http://localhost:8080`) **antes** de iniciar o Expo.
+2. Confirme os endpoints em JSON pelo navegador ou Postman/Insomnia (ex.: `GET http://localhost:8080/sensores`).
+3. Suba o app mobile (repositório `gs---advanced-programming-mobile-dev`, pasta `App/`) com `npx expo start --web` — ele consome esta API através da camada `src/services/*Service.ts` (sem mocks).
+
+---
+
 ## H2 Console (Banco de Dados em Memória)
 
 Acesse o console do banco H2 em:
