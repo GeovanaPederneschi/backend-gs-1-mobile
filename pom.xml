@@ -16,7 +16,7 @@
     <artifactId>orbital_mission_control</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>orbital_mission_control</name>
-    <description>Orbital Mission Control Platform - Global Solution 2026 FIAP</description>
+    <description>Orbital Mission Control Platform - Sprint 2026 FIAP</description>
 
     <properties>
         <java.version>17</java.version>

@@ -1,5 +1,5 @@
 # Orbital Mission Control Platform
-## Global Solution 2026 — FIAP | Turma 3ECR
+## Sprint 2026 — FIAP | Turma 3ECR
 ### Tema: Space Connect — Orbital Mission Control Platform
 
 > **Guia completo (backend + app, fluxo de telas e roteiro do vídeo):** veja o README do frontend → https://github.com/GeovanaPederneschi/gs-moblie-frontend
