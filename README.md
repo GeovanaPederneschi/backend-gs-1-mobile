@@ -2,14 +2,26 @@
 ## Global Solution 2026 — FIAP | Turma 3ECR
 ### Tema: Space Connect — Orbital Mission Control Platform
 
+> **Guia completo (backend + app, fluxo de telas e roteiro do vídeo):** veja o README do frontend → https://github.com/GeovanaPederneschi/gs-moblie-frontend
+
+---
+
+## Repositórios e vídeo
+
+| Item | Link |
+|---|---|
+| Backend (este) — API Spring Boot | https://github.com/GeovanaPederneschi/backend-gs-1-mobile |
+| Frontend — app React Native / Expo | https://github.com/GeovanaPederneschi/gs-moblie-frontend |
+| Vídeo no YouTube (Não listado) | https://youtu.be/COLE_AQUI_O_LINK_DO_VIDEO |
+
 ---
 
 ## Integrantes
 
 | Nome Completo | RM |
 |---|---|
-| Geovana Carvalho Pederneschi | 559092 |
-| Thais Helena Ferreira Vieira | 552387 |
+| Geovana Carvalho Pederneschi | RM559092 |
+| Thais Helena Ferreira Vieira | RM552387 |
 
 ---
 
@@ -84,16 +96,52 @@ Alerta gerado quando um parâmetro excede limite seguro. Possui relacionamento `
 
 ---
 
-## Como Rodar
+## Arquitetura em camadas
 
-1. Abra o projeto no **IntelliJ IDEA**
-2. Aguarde o Maven baixar todas as dependências automaticamente
-3. Localize e execute a classe `OrbitalMissionControlApplication.java`
-4. A API estará disponível em `http://localhost:8080`
+```
+src/main/java/com/fiap/ec/orbital_mission_control/
+├── controller/   → endpoints REST (@RestController + @CrossOrigin)
+├── service/      → regras de negócio (404 quando o id não existe)
+├── repository/   → interfaces JpaRepository
+├── model/        → entidades JPA (SensorModulo, LeituraSensor, AlertaCritico)
+└── config/       → DataLoader: dados iniciais quando o banco está vazio
+```
+
+CORS: todos os controllers usam `@CrossOrigin`, liberando o acesso do app Expo (web em `localhost:8081`, emulador e celular).
 
 ---
 
-## H2 Console (Banco de Dados em Memória)
+## Pré-requisitos
+
+- Java 17 ou superior (JDK)
+- Maven 3.9+ — opcional, o projeto inclui o Maven Wrapper (`./mvnw`)
+
+---
+
+## Como Rodar
+
+```bash
+git clone https://github.com/GeovanaPederneschi/backend-gs-1-mobile.git
+cd backend-gs-1-mobile
+./mvnw spring-boot:run          # Windows: mvnw.cmd spring-boot:run
+# ou, com Maven instalado:  mvn spring-boot:run
+```
+
+Alternativa: abrir a pasta no **IntelliJ IDEA** e executar a classe `OrbitalMissionControlApplication`.
+
+A API sobe em `http://localhost:8080` (porta fixada em `application.properties`). Confira no navegador ou Postman/Insomnia:
+
+- `GET http://localhost:8080/sensores`
+- `GET http://localhost:8080/leituras`
+- `GET http://localhost:8080/alertas`
+
+Na primeira execução o banco é criado em `./data/orbital.mv.db` e populado com 3 sensores, 3 leituras e 3 alertas de exemplo (só quando está vazio). Os dados cadastrados pelo app ficam persistidos em arquivo e continuam lá após reiniciar a API. Para zerar o banco, pare a API e apague a pasta `data/`.
+
+**Parar o backend:** `Ctrl + C` no terminal (ou botão Stop no IntelliJ). Com a API parada, o app deixa de receber dados e exibe a mensagem de erro — não há mock no app.
+
+---
+
+## H2 Console (Banco de Dados em Arquivo)
 
 Acesse o console do banco H2 em:
 

@@ -27,3 +27,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+### Build / banco H2 local ###
+target/
+data/

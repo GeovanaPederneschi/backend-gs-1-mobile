@@ -2,7 +2,9 @@ package com.fiap.ec.orbital_mission_control.service;
 
 import com.fiap.ec.orbital_mission_control.model.LeituraSensor;
 import com.fiap.ec.orbital_mission_control.repository.LeituraSensorRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -25,7 +27,7 @@ public class LeituraSensorService {
 
     public LeituraSensor buscarPorId(Long id) {
         return leituraSensorRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Leitura não encontrada"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Leitura não encontrada"));
     }
 
     public LeituraSensor atualizar(Long id, LeituraSensor leituraSensor) {

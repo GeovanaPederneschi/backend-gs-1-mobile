@@ -2,7 +2,9 @@ package com.fiap.ec.orbital_mission_control.service;
 
 import com.fiap.ec.orbital_mission_control.model.AlertaCritico;
 import com.fiap.ec.orbital_mission_control.repository.AlertaCriticoRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -25,7 +27,7 @@ public class AlertaCriticoService {
 
     public AlertaCritico buscarPorId(Long id) {
         return alertaCriticoRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Alerta não encontrado"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Alerta não encontrado"));
     }
 
     public AlertaCritico atualizar(Long id, AlertaCritico alertaCritico) {

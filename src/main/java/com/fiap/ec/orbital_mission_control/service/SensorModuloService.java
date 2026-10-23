@@ -2,7 +2,9 @@ package com.fiap.ec.orbital_mission_control.service;
 
 import com.fiap.ec.orbital_mission_control.model.SensorModulo;
 import com.fiap.ec.orbital_mission_control.repository.SensorModuloRepository;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -25,7 +27,7 @@ public class SensorModuloService {
 
     public SensorModulo buscarPorId(Long id) {
         return sensorModuloRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Sensor não encontrado"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Sensor não encontrado"));
     }
 
     public SensorModulo atualizar(Long id, SensorModulo sensorModulo) {
