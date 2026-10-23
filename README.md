@@ -12,7 +12,7 @@
 |---|---|
 | Backend (este) — API Spring Boot | https://github.com/GeovanaPederneschi/backend-gs-1-mobile |
 | Frontend — app React Native / Expo | https://github.com/GeovanaPederneschi/gs-moblie-frontend |
-| Vídeo no YouTube (Não listado) | https://youtu.be/COLE_AQUI_O_LINK_DO_VIDEO |
+| Vídeo no YouTube (Não listado) | https://youtu.be/FbL4_DYdXeM |
 
 ---
 
